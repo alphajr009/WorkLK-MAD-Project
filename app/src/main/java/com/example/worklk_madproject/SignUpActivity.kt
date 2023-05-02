@@ -7,8 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpActivity : AppCompatActivity() {
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup1)
@@ -31,21 +34,38 @@ class SignUpActivity : AppCompatActivity() {
 
             // Check if all fields are filled
             if (name.isNotEmpty() && email.isNotEmpty() && mobile.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
-                // Check if the password and confirm password match
-                if (password == confirmPassword) {
-                    // Create an Intent and put the entered values as extras
-                    val intent = Intent(this, SignUpActivity2::class.java)
-                    intent.putExtra("name", name)
-                    intent.putExtra("email", email)
-                    intent.putExtra("mobile", mobile)
-                    intent.putExtra("password", password)
-                    intent.putExtra("confirmPassword", confirmPassword)
+                // Validate email address
+                if (isEmailValid(email)) {
+                    // Validate password
+                    if (isPasswordValid(password)) {
+                        // Check if user already exists
+                        checkUserExists(email) { exists ->
+                            if (!exists) {
+                                // Check if the password and confirm password match
+                                if (password == confirmPassword) {
+                                    // Create an Intent and put the entered values as extras
+                                    val intent = Intent(this, SignUpActivity2::class.java)
+                                    intent.putExtra("name", name)
+                                    intent.putExtra("email", email)
+                                    intent.putExtra("mobile", mobile)
+                                    intent.putExtra("password", password)
+                                    intent.putExtra("confirmPassword", confirmPassword)
 
-                    // Start SignUpActivity2 with the modified Intent
-                    startActivity(intent)
+                                    // Start SignUpActivity2 with the modified Intent
+                                    startActivity(intent)
+                                } else {
+                                    // Show a warning that the passwords must match
+                                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                                }
+                            } else {
+                                Toast.makeText(this, "User already exists, Sign In", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
-                    // Show a warning that the passwords must match
-                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 // Show a warning that all fields must be filled
@@ -58,4 +78,26 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, JobSeekerRegisterActivity::class.java))
         }
     }
+
+    private fun isEmailValid(email: String): Boolean {
+        val emailRegex = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$".toRegex(RegexOption.IGNORE_CASE)
+        return emailRegex.matches(email)
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        return password.length >= 6
+    }
+
+    private fun checkUserExists(email: String, callback: (Boolean) -> Unit) {
+        db.collection("users")
+            .whereEqualTo("email", email)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                callback(querySnapshot.size() > 0)
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Error checking user existence: $exception", Toast.LENGTH_SHORT).show()
+            }
+    }
 }
+
