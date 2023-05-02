@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextEmail"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:background="@drawable/edittext_background"
@@ -82,7 +82,7 @@
         app:layout_constraintVertical_bias="0.609" />
 
     <EditText
-        android:id="@+id/editTextConfrimPassword"
+        android:id="@+id/editTextConfirmPassword"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:background="@drawable/edittext_background"
