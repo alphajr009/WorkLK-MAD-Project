@@ -36,7 +36,7 @@
 
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/emailEditText"
         android:layout_width="332dp"
         android:layout_height="58dp"
         android:background="@drawable/edittext_background"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.427" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/passwordEditText"
         android:layout_width="332dp"
         android:layout_height="58dp"
         android:background="@drawable/edittext_background"
