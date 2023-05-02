@@ -16,11 +16,11 @@ class InstructionActivity : AppCompatActivity() {
         skip.setOnClickListener{
             startActivity(Intent(this, LoginActivity::class.java))
         }
-
         val button = findViewById<TextView>(R.id.button)
         button.setOnClickListener{
             startActivity(Intent(this, InstructionActivity2::class.java))
         }
+
     }
 
     override fun onStop() {

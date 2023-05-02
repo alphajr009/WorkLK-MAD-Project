@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="province_options">
+        <item>Central </item>
+        <item>Eastern </item>
+        <item>North Central</item>
+        <item>North Western</item>
+        <item>Northern </item>
+        <item>Sabaragamuwa </item>
+        <item>Southern </item>
+        <item>Uva </item>
+        <item>Western </item>
+    </string-array>
+
+
+    <string-array name="districtCentral_options">
+        <item>Kandy </item>
+        <item>Matale  </item>
+        <item>Nuwara Eliya</item>
+    </string-array>
+
+
+    <string-array name="districtEastern_options">
+        <item>Ampara </item>
+        <item>Batticaloa </item>
+        <item>Trincomalee </item>
+    </string-array>
+
+    <string-array name="districtNorthCentral_options">
+        <item>Anuradhapura  </item>
+        <item>Polonnaruwa  </item>
+    </string-array>
+
+    <string-array name="districtNorthWestern_options">
+        <item>Puttalam  </item>
+        <item>Kurunegala  </item>
+    </string-array>
+
+    <string-array name="districtNorthern_options">
+        <item>Jaffna  </item>
+        <item>Kilinochchi  </item>
+        <item>Mannar  </item>
+        <item>Mullaitivu  </item>
+        <item>Vavuniya  </item>
+    </string-array>
+
+    <string-array name="districtSabaragamuwa_options">
+        <item>Kegalle  </item>
+        <item>Ratnapura  </item>
+    </string-array>
+
+    <string-array name="districtSouthern_options">
+        <item>Galle  </item>
+        <item>Hambantota  </item>
+        <item>Matara </item>
+    </string-array>
+
+    <string-array name="districtUva_options">
+        <item>Badulla  </item>
+        <item>Monaragala  </item>
+    </string-array>
+
+    <string-array name="districtWestern_options">
+        <item>Colombo  </item>
+        <item>Gampaha  </item>
+        <item>Kalutara  </item>
+
+
+    </string-array>
+
+
+
+
+
+</resources>
