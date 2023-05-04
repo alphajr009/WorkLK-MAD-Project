@@ -61,7 +61,7 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
                             .addOnCompleteListener { userTask: Task<DocumentSnapshot> ->
                                 if (userTask.isSuccessful) {
                                     // DocumentSnapshot found, navigate to the InstructionActivity2
-                                    startActivity(Intent(this, InstructionActivity2::class.java))
+                                    startActivity(Intent(this, UserLandingPage::class.java))
                                 } else {
                                     // No matching document, show user not found message
                                     Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
