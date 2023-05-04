@@ -1,5 +1,6 @@
 package com.example.worklk_madproject
 
+import SharedPrefManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,6 +23,13 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login2)
+
+        // Check if user is already logged in
+        val sharedPrefManager = SharedPrefManager(this)
+        if (sharedPrefManager.isLoggedIn()) {
+            startActivity(Intent(this, UserLandingPage::class.java))
+            finish() // Close the LoginActivity
+        }
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -60,7 +68,11 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
                             .get()
                             .addOnCompleteListener { userTask: Task<DocumentSnapshot> ->
                                 if (userTask.isSuccessful) {
-                                    // DocumentSnapshot found, navigate to the InstructionActivity2
+                                    // Save login status
+                                    val sharedPrefManager = SharedPrefManager(this)
+                                    sharedPrefManager.setLoggedIn(true)
+
+                                    // Navigate to the UserLandingPage
                                     startActivity(Intent(this, UserLandingPage::class.java))
                                 } else {
                                     // No matching document, show user not found message
@@ -85,5 +97,4 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
                 }
             }
     }
-
 }
