@@ -1,5 +1,6 @@
 package com.example.worklk_madproject
 
+import SharedPrefManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,12 +14,20 @@ class DivideBegin : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val isFirstLaunch = sharedPreferences.getBoolean("isFirstLaunch", true)
 
+
+
         if (isFirstLaunch) {
             startActivity(Intent(this, InstructionActivity::class.java))
             finish()
             return
         }else {
             startActivity(Intent(this, LoginActivity::class.java))
+            val sharedPrefManager = SharedPrefManager(this)
+            if (sharedPrefManager.isLoggedIn()) {
+                startActivity(Intent(this, UserLandingPage::class.java))
+                finish() // Close the DivideActivity
+            }
+
         }
 
 
