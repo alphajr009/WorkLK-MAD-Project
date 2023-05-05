@@ -35,10 +35,12 @@ class SignUpActivity5 : AppCompatActivity() {
         val province = intent.getStringExtra("province")
         val district = intent.getStringExtra("district")
         val city = intent.getStringExtra("city")
-        val postalCode = intent.getStringExtra("postalCode")
+        val adress = intent.getStringExtra("postalCode")
         val schoolUni = intent.getStringExtra("schoolUni")
         val location = intent.getStringExtra("location")
         val degree = intent.getStringExtra("degree")
+        val startDate = intent.getStringExtra("startDate")
+        val endDate = intent.getStringExtra("endDate")
 
         val jobtitleedittext = findViewById<EditText>(R.id.editTextJobtitle)
         val companynameedittext = findViewById<EditText>(R.id.editTextCompany)
@@ -60,10 +62,12 @@ class SignUpActivity5 : AppCompatActivity() {
                 province = province ?: "",
                 district = district ?: "",
                 city = city ?: "",
-                postalCode = postalCode ?: "",
+                adress = adress ?: "",
                 schoolUni = schoolUni ?: "",
                 location = location ?: "",
                 degree = degree ?: "",
+                startDate = startDate ?: "",
+                endDate = endDate ?: "",
                 jobTitle = jobtitleedittext.text.toString(),
                 companyName = companynameedittext.text.toString(),
                 companyLocation = companylocationedittext.text.toString(),
@@ -116,10 +120,12 @@ data class User(
     val province: String,
     val district: String,
     val city: String,
-    val postalCode: String,
+    val adress: String,
     val schoolUni: String,
     val location: String,
     val degree: String,
+    val startDate: String,
+    val endDate: String,
     val jobTitle: String,
     val companyName: String,
     val companyLocation: String,

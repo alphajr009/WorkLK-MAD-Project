@@ -4,6 +4,7 @@ import SharedPrefManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 
 class JobSeekerRegisterActivity : AppCompatActivity() {
 
@@ -59,18 +61,30 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task: Task<AuthResult> ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = auth.currentUser
-                    val userId = user?.uid
 
-                    if (userId != null) {
-                        db.collection("users").document(userId)
-                            .get()
-                            .addOnCompleteListener { userTask: Task<DocumentSnapshot> ->
-                                if (userTask.isSuccessful) {
+                    val userUID = auth.currentUser?.uid
+
+                    // Save the user UID to Shared Preferences
+                    val sharedPrefManager = SharedPrefManager(this)
+                    sharedPrefManager.saveUserUID(userUID)
+
+
+                    // Sign in success, update UI with the signed-in user's information
+                    db.collection("users")
+                        .whereEqualTo("email", email) // Search the users collection using the email address
+                        .get()
+                        .addOnCompleteListener { userTask: Task<QuerySnapshot> ->
+                            if (userTask.isSuccessful) {
+                                val documents = userTask.result?.documents
+                                if (documents != null && documents.isNotEmpty()) {
+                                    val userId = documents[0].id
+
                                     // Save login status
                                     val sharedPrefManager = SharedPrefManager(this)
                                     sharedPrefManager.setLoggedIn(true)
+
+                                    // Save user's ID
+                                    sharedPrefManager.saveUserId(userId)
 
                                     // Navigate to the UserLandingPage
                                     startActivity(Intent(this, UserLandingPage::class.java))
@@ -78,8 +92,11 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
                                     // No matching document, show user not found message
                                     Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
                                 }
+                            } else {
+                                // If the task is unsuccessful, show an error message
+                                Toast.makeText(this, "Error retrieving user data", Toast.LENGTH_SHORT).show()
                             }
-                    }
+                        }
                 } else {
                     // If sign in fails, display a message to the user.
                     val errorCode = (task.exception as FirebaseAuthException).errorCode
@@ -97,4 +114,5 @@ class JobSeekerRegisterActivity : AppCompatActivity() {
                 }
             }
     }
+
 }
