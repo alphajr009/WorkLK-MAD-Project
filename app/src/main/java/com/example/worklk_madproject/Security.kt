@@ -8,16 +8,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Security : Fragment() {
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentPasswordEditText: EditText
+    private lateinit var newPasswordEditText: EditText
+    private lateinit var confirmPasswordEditText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +35,16 @@ class Security : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        currentPasswordEditText = view.findViewById(R.id.CurrentPassword)
+        newPasswordEditText = view.findViewById(R.id.Password)
+        confirmPasswordEditText = view.findViewById(R.id.ConfirmPassword)
+        val changePasswordButton = view.findViewById<Button>(R.id.button)
+
+
+        changePasswordButton.setOnClickListener {
+            changePassword()
+        }
+
         val floatingActionButton: FloatingActionButton =
             view.findViewById(R.id.floatingActionButton)
         floatingActionButton.setOnClickListener {
@@ -37,6 +54,62 @@ class Security : Fragment() {
         return view
     }
 
+    private fun changePassword() {
+        val currentPassword = currentPasswordEditText.text.toString().trim()
+        val newPassword = newPasswordEditText.text.toString().trim()
+        val confirmPassword = confirmPasswordEditText.text.toString().trim()
+
+        if (newPassword.length < 6) {
+            Toast.makeText(requireContext(), "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (newPassword != confirmPassword) {
+            Toast.makeText(requireContext(), "New password and confirm password do not match", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val user = mAuth.currentUser
+        val sharedPrefManager = SharedPrefManager(requireContext())
+        val email = user?.email
+
+        if (email != null && user != null) {
+            val credential = EmailAuthProvider.getCredential(email, currentPassword)
+            user.reauthenticate(credential)
+                .addOnSuccessListener {
+                    user.updatePassword(newPassword)
+                        .addOnSuccessListener {
+                            // Update password in Firestore
+                            val userId = sharedPrefManager.getUserId()
+                            val db = FirebaseFirestore.getInstance()
+                            db.collection("users")
+                                .document(userId)
+                                .update("password", newPassword)
+                                .addOnSuccessListener {
+                                    Toast.makeText(requireContext(), "Password changed successfully", Toast.LENGTH_SHORT).show()
+
+                                    currentPasswordEditText.setText("")
+                                    newPasswordEditText.setText("")
+                                    confirmPasswordEditText.setText("")
+                                }
+                                .addOnFailureListener { e ->
+                                    if (e is FirebaseAuthInvalidCredentialsException) {
+                                        Toast.makeText(requireContext(), "Incorrect current password", Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        Toast.makeText(requireContext(), "Incorrect current password", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "Failed to change password", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Failed to authenticate current password", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
     private fun showDeleteAccountDialog() {
         val builder = AlertDialog.Builder(requireContext())
 
@@ -44,7 +117,6 @@ class Security : Fragment() {
         val inflater = requireActivity().layoutInflater
         val dialogView = inflater.inflate(R.layout.delete_account_dialog, null)
 
-        // Set the custom layout to the AlertDialog
         builder.setView(dialogView)
 
         val confirmationCheckbox = dialogView.findViewById<CheckBox>(R.id.confirmation_checkbox)
@@ -72,10 +144,10 @@ class Security : Fragment() {
         val positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
         positiveButton.isEnabled = false
 
-        // Set the initial "Yes" button color to grey
+
         positiveButton.setTextColor(resources.getColor(R.color.grey))
 
-        // Customize the negative button text color
+
         val negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
         negativeButton.setTextColor(resources.getColor(R.color.background))
 
