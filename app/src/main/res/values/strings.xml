@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WorkLK-MAD Project</string>
+    <string name="create_policy" />
 </resources>

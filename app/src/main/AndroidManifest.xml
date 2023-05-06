@@ -85,6 +85,10 @@
                 android:value="" />
         </activity>
 
+        <activity android:name=".InsertionActivity" />
+        <activity android:name=".FetchingActivity" />
+        <activity android:name=".EmployeeDetailsActivity" />
+
 
 
 

@@ -1,10 +1,10 @@
 package com.example.worklk_madproject
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.content.Intent
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,3 +22,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+

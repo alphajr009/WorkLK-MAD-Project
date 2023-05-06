@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "582168753947",
+    "project_id": "worklk-744c9",
+    "storage_bucket": "worklk-744c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582168753947:android:5af6476c12867b43c1c5be",
+        "android_client_info": {
+          "package_name": "com.example.worklk_madproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582168753947-97kchrf61eqpd8k9jn510lldcjor8q3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZd8E8ORg_IOo3e9llebfFB5SiEmcc0Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582168753947-97kchrf61eqpd8k9jn510lldcjor8q3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
