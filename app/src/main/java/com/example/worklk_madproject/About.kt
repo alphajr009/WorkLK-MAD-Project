@@ -7,9 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentSnapshot
+import android.content.Intent
+
+
+
 
 class About : Fragment() {
 
@@ -29,6 +34,19 @@ class About : Fragment() {
         val userId = sharedPrefManager.getUserId()
         Log.d("About", "User ID: $userId")
         getUserInfoAndUpdateUI(userId, view)
+
+
+        val button = view.findViewById<Button>(R.id.button)
+
+        button.setOnClickListener {
+            val intent = Intent(requireContext(), EditAbout::class.java)
+            startActivity(intent)
+        }
+
+
+
+
+
 
         return view
     }
@@ -51,8 +69,8 @@ class About : Fragment() {
                 val nameTextView = view.findViewById<TextView>(R.id.Name)
                 val phoneTextView = view.findViewById<TextView>(R.id.Phone)
                 val genderTextView = view.findViewById<TextView>(R.id.Gender)
-                val dateOfBirthTextView = view.findViewById<TextView>(R.id.DateofBirth)
-                val addressTextView = view.findViewById<TextView>(R.id.Address)
+                val dateOfBirthTextView = view.findViewById<TextView>(R.id.DOBDay)
+                val addressTextView = view.findViewById<TextView>(R.id.AddressLine)
 
                 nameTextView.text = name
                 phoneTextView.text = mobile
@@ -65,4 +83,6 @@ class About : Fragment() {
                 Log.e("About", "Error fetching user data", e)
             }
     }
+
+
 }

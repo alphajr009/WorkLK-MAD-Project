@@ -26,8 +26,9 @@ class Account : Fragment(), PopupMenu.OnMenuItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPager: ViewPager2 = view.findViewById(R.id.view_pager)
-        viewPager.adapter = AccountPagerAdapter(requireActivity())
+        val viewPager: ViewPager2 = view.findViewById(R.id.container)
+        viewPager.adapter = AccountPagerAdapter(this)
+
 
         val tabLayout: TabLayout = view.findViewById(R.id.tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->

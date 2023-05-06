@@ -31,5 +31,6 @@ class InstructionActivity2 : AppCompatActivity() {
         editor.putBoolean("isFirstLaunch", false)
         editor.apply()
     }
-
 }
+
+
