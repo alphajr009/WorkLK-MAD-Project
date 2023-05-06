@@ -7,6 +7,8 @@ import com.example.worklk_madproject.databinding.UserhomepageBinding
 
 class UserLandingPage : AppCompatActivity() {
 
+
+
     private lateinit var binding: UserhomepageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,18 +19,18 @@ class UserLandingPage : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
-             when(it.itemId){
+            when(it.itemId){
 
-                 R.id.home -> replaceFragment(Home())
-                 R.id.notification -> replaceFragment(Notification())
-                 R.id.account -> replaceFragment(Account())
+                R.id.home -> replaceFragment(Home())
+                R.id.notification -> replaceFragment(Notification())
+                R.id.account -> replaceFragment(Account())
 
-                 else -> {
+                else -> {
 
-                 }
+                }
 
-             }
-true
+            }
+            true
 
         }
 
@@ -43,6 +45,3 @@ true
     }
 
 }
-
-
-

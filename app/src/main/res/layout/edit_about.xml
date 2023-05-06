@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/DOBMonth"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <EditText
+        android:id="@+id/Gender"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.096" />
+
+    <TextView
+        android:id="@+id/namelabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <EditText
+        android:id="@+id/DOBDay"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <EditText
+        android:id="@+id/DOBYear"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <EditText
+        android:id="@+id/District"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.804" />
+
+    <EditText
+        android:id="@+id/City"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
+
+    <TextView
+        android:id="@+id/Citylabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="City"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658" />
+
+    <TextView
+        android:id="@+id/Districtlabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="District"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.783" />
+
+    <TextView
+        android:id="@+id/addresslabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Address Line"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
+
+    <TextView
+        android:id="@+id/dateofbrithlabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Date of Birth"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <EditText
+        android:id="@+id/AddressLine"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563" />
+
+    <TextView
+        android:id="@+id/genderlabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Gender"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/phonelabel"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Phone"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="10dp"
+        android:paddingTop="11dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
