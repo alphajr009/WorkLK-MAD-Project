@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448875417599",
+    "project_id": "madjobs-9eee7",
+    "storage_bucket": "madjobs-9eee7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448875417599:android:402dba08c2cad5741421ca",
+        "android_client_info": {
+          "package_name": "com.example.Madjobs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448875417599-ibpg8h5rvacvv0f88vsk26937s260fb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbSVawylUKsPu-yhrsC5Ydj80fYR90TYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448875417599-ibpg8h5rvacvv0f88vsk26937s260fb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
