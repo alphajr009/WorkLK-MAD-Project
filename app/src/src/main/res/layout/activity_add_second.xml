@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSecondActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="111dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
+            android:text="Company Information"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Contact Number"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/contactNumber"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:hint="07********"
+            android:inputType="number"
+            android:paddingLeft="9dp" />
+
+        <TextView
+            android:id="@+id/textViewdd"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Type of Business"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/businessType"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:hint="Type of Business"
+            android:inputType="text"
+            android:paddingLeft="9dp" />
+
+        <TextView
+            android:id="@+id/textViewdd4"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Company Registration Number"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/comRegNumber"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:hint="034*********"
+            android:inputType="number"
+            android:paddingStart="9dp"
+            android:paddingLeft="9dp" />
+
+        <TextView
+            android:id="@+id/textViewdd3"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Company Registration Date"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/comRegDate"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:hint="DD/MM/YYYY"
+            android:inputType="text"
+            android:paddingLeft="9dp" />
+
+        <TextView
+            android:id="@+id/textViewdd6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="270dp"
+            android:layout_height="48dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_black"
+            android:onClick="addRecord"
+            android:text="Add Company"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:backgroundTint="#1967D3" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
