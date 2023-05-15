@@ -139,6 +139,37 @@
                 android:value="" />
         </activity>
 
+        <activity
+            android:name=".EditAbout"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".EditEducation"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+
+        <activity
+            android:name=".EditExperience"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+
+
+
 
         <meta-data
             android:name="preloaded_fonts"
