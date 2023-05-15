@@ -1,10 +1,13 @@
 package com.example.worklk_madproject
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
@@ -72,6 +75,14 @@ class LoginActivity : AppCompatActivity() {
     private fun setContainerBorderColor(container: ConstraintLayout, color: Int) {
         val background = container.background as GradientDrawable
         background.setStroke(3, color)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }
 

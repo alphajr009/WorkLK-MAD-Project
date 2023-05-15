@@ -1,13 +1,17 @@
 package com.example.worklk_madproject
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+
 
 class SignUpActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,8 @@ class SignUpActivity2 : AppCompatActivity() {
         val editTextBirthDay = findViewById<EditText>(R.id.editTextBirthDay)
         val editTextBirthMonth = findViewById<EditText>(R.id.editTextBirthMonth)
         val editTextBirthYear = findViewById<EditText>(R.id.editTextBirthYear)
+
+
 
         // Set up the Spinner adapter
         ArrayAdapter.createFromResource(
@@ -67,5 +73,13 @@ class SignUpActivity2 : AppCompatActivity() {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

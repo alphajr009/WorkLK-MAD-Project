@@ -15,32 +15,27 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class EditAbout : AppCompatActivity() {
+class EditEducation: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.edit_about)
+        setContentView(R.layout.edit_education)
+
 
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-
-
-        val imageView = findViewById<ImageView>(R.id.imageView14)
+        val imageView = findViewById<ImageView>(R.id.imageView142)
         val saveButton = findViewById<Button>(R.id.button)
 
-        val name = findViewById<EditText>(R.id.Name)
-        val phone = findViewById<EditText>(R.id.Phone)
-        val gender = findViewById<EditText>(R.id.Gender)
-        val dobDay = findViewById<EditText>(R.id.DOBDay)
-        val dobMonth = findViewById<EditText>(R.id.DOBMonth)
-        val dobYear = findViewById<EditText>(R.id.DOBYear)
-        val addressLine = findViewById<EditText>(R.id.AddressLine)
-        val city = findViewById<EditText>(R.id.City)
-        val district = findViewById<EditText>(R.id.District)
+        val SchoolorUni = findViewById<EditText>(R.id.SchoolorUni)
+        val Location = findViewById<EditText>(R.id.Location)
+        val Degree = findViewById<EditText>(R.id.Degree)
+        val StartDate = findViewById<EditText>(R.id.StartDate)
+        val EndDate = findViewById<EditText>(R.id.EndDate)
 
         val sharedPrefManager = SharedPrefManager(this)
         val userId = sharedPrefManager.getUserId()
@@ -50,24 +45,21 @@ class EditAbout : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
-                        Log.d("EditAbout", "Document data: ${document.data}")
-                        name.setText(document.getString("name") ?: "")
-                        phone.setText(document.getString("mobile") ?: "")
-                        gender.setText(document.getString("gender") ?: "")
-                        dobDay.setText(document.getString("birthDay") ?: "")
-                        dobMonth.setText(document.getString("birthMonth") ?: "")
-                        dobYear.setText(document.getString("birthYear") ?: "")
-                        addressLine.setText(document.getString("adress") ?: "")
-                        city.setText(document.getString("city") ?: "")
-                        district.setText(document.getString("district") ?: "")
-                    } else {
-                        Log.d("EditAbout", "User ID: $userId")
+                        Log.d("EditEducation", "Document data: ${document.data}")
+                        SchoolorUni.setText(document.getString("schoolUni") ?: "")
+                        Location.setText(document.getString("location") ?: "")
+                        Degree.setText(document.getString("degree") ?: "")
+                        StartDate.setText(document.getString("startDate") ?: "")
+                        EndDate.setText(document.getString("endDate") ?: "")
 
-                        Log.d("EditAbout", "No such document")
+                    } else {
+                        Log.d("EditEducation", "User ID: $userId")
+
+                        Log.d("EditEducation", "No such document")
                     }
                 }
                 .addOnFailureListener { e ->
-                    Log.e("EditAbout", "Error fetching user data", e)
+                    Log.e("EditEducation", "Error fetching user data", e)
                 }
         }
 
@@ -79,15 +71,11 @@ class EditAbout : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             val updatedData = hashMapOf<String, Any>(
-                "name" to name.text.toString(),
-                "mobile" to phone.text.toString(),
-                "gender" to gender.text.toString(),
-                "birthDay" to dobDay.text.toString(),
-                "birthMonth" to dobMonth.text.toString(),
-                "birthYear" to dobYear.text.toString(),
-                "address" to addressLine.text.toString(),
-                "city" to city.text.toString(),
-                "district" to district.text.toString()
+                "schoolUni" to SchoolorUni.text.toString(),
+                "location" to Location.text.toString(),
+                "degree" to Degree.text.toString(),
+                "startDate" to StartDate.text.toString(),
+                "endDate" to EndDate.text.toString(),
             )
 
             if (userId != null) {
@@ -102,6 +90,9 @@ class EditAbout : AppCompatActivity() {
                     }
             }
         }
+
+
+
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
@@ -111,4 +102,7 @@ class EditAbout : AppCompatActivity() {
         }
         return super.dispatchTouchEvent(ev)
     }
+
+
+
 }
